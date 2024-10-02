@@ -17,12 +17,12 @@ jobs:
 
     - name: Log in to Amazon ECR
       run: |
-        aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | docker login --username AWS --password-stdin ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com
+        aws ecr get-login-password --region ${{ secrets.us-east-1 }} | docker login --username AWS --password-stdin ${{ secrets.154075864419 }}.dkr.ecr.${{ secrets.us-east-1 }}.amazonaws.com
 
     - name: Build and push Docker image
       run: |
-        docker build -t ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/my-node-app:latest .
-        docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/my-node-app:latest
+        docker build -t ${{ secrets.154075864419 }}.dkr.ecr.${{ secrets.us-east-1 }}.amazonaws.com/my-node-app:latest .
+        docker push ${{ secrets.154075864419 }}.dkr.ecr.${{ secrets.us-east-1 }}.amazonaws.com/my-node-app:latest
 
     - name: Deploy to ECS
       run: |
